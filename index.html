@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#111827" />
+  <title>Registro de Trabajo</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="card">
+      <header class="header">
+        <div>
+          <p class="eyebrow">CONTROL DE TIEMPO</p>
+          <h1>Registro de trabajo</h1>
+        </div>
+        <div class="status" id="statusBadge">Preparado</div>
+      </header>
+
+      <div class="form-grid" id="setupForm">
+        <label>
+          Tu correo de Gmail
+          <input id="email" type="email" autocomplete="email" placeholder="tunombre@gmail.com" />
+        </label>
+        <label>
+          Proyecto
+          <input id="project" type="text" placeholder="Ej. Proyecto ABC" maxlength="100" />
+        </label>
+        <label class="full">
+          Tarea
+          <textarea id="task" placeholder="Ej. Preparación de documentación" maxlength="300"></textarea>
+        </label>
+      </div>
+
+      <div class="timer-wrap">
+        <div class="timer" id="timer">00:00:00</div>
+        <div class="meta-row">
+          <span>Inicio: <strong id="startLabel">—</strong></span>
+          <span>Fecha: <strong id="dateLabel">—</strong></span>
+        </div>
+      </div>
+
+      <button class="primary" id="startBtn">COMENZAR</button>
+      <button class="danger hidden" id="stopBtn">TERMINAR</button>
+
+      <section class="summary hidden" id="summary">
+        <h2>Sesión finalizada</h2>
+        <div class="summary-grid">
+          <label>
+            Inicio
+            <input id="editStart" type="datetime-local" />
+          </label>
+          <label>
+            Fin
+            <input id="editEnd" type="datetime-local" />
+          </label>
+        </div>
+        <div class="total-box">
+          <span>Tiempo total</span>
+          <strong id="totalLabel">00:00:00</strong>
+        </div>
+        <div class="summary-details">
+          <p><span>Correo</span><strong id="sumEmail"></strong></p>
+          <p><span>Proyecto</span><strong id="sumProject"></strong></p>
+          <p><span>Tarea</span><strong id="sumTask"></strong></p>
+        </div>
+        <div class="actions">
+          <button class="secondary" id="cancelBtn">VOLVER</button>
+          <button class="primary" id="sendBtn">CONFIRMAR Y ENVIAR</button>
+        </div>
+        <p class="message" id="message"></p>
+      </section>
+    </section>
+
+    <section class="card history-card">
+      <div class="history-title">
+        <div>
+          <p class="eyebrow">REGISTRO LOCAL</p>
+          <h2>Últimas sesiones</h2>
+        </div>
+        <button class="link-btn" id="clearHistoryBtn">Borrar historial</button>
+      </div>
+      <div id="historyList" class="history-list">
+        <p class="empty">Todavía no hay sesiones registradas.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
